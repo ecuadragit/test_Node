@@ -1,3 +1,4 @@
 #los comandos para desplegar:
-npm install
-serverless deploy
+#npm install
+#serverless deploy
+  
