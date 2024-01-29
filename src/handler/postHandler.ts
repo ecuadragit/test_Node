@@ -7,12 +7,15 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     // Aplica el middleware de transformación antes de procesar la solicitud
     const transformedEvent = transformMiddleware(event);
 
+    // Asegúrate de que transformedEvent tenga la propiedad 'body' y que sea una cadena JSON válida
+    if (!transformedEvent.body) {
+      throw new Error('El objeto transformado no tiene una propiedad "body"');
+    }
+
     const requestBody = JSON.parse(transformedEvent.body);
 
-  
     // Resto del código...
-    
-    // Continúa con el resto de tu lógica
+
     const params = {
       TableName: 'myServerlessTable',
       Item: {
@@ -32,7 +35,7 @@ export const handler: APIGatewayProxyHandler = async (event) => {
     console.error('Error al crear datos:', error);
 
     return {
-      statusCode: 500,
+      statusCode: 404,
       body: JSON.stringify({ error: 'Error interno al crear datos' }),
     };
   }

@@ -18,7 +18,7 @@ export const transformMiddleware = (
       console.error('Error en el middleware de transformación:', error);
 
       return {
-        statusCode: 500,
+        statusCode: 404,
         body: JSON.stringify({ error: 'Error interno en el middleware de transformación' }),
       };
     }

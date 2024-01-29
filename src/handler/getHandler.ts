@@ -4,6 +4,7 @@ import { dbService } from '../services/dbService';
 export const handler: APIGatewayProxyHandler = async () => {
   try {
     const params = {
+      //aqui agregamos el nombre de la tabla donde se hara la consulta post
       TableName: 'myServerlessTable',
     };
 
@@ -17,7 +18,7 @@ export const handler: APIGatewayProxyHandler = async () => {
     console.error('Error al obtener datos:', error);
 
     return {
-      statusCode: 500,
+      statusCode: 404,
       body: JSON.stringify({ error: 'Error interno al obtener datos' }),
     };
   }

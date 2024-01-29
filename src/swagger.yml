@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  title: My Serverless API
+  version: 1.0.0
+paths:
+  /get-data:
+    get:
+      summary: Obtener datos
+      responses:
+        '200':
+          description: Respuesta exitosa
+  /create-data:
+    post:
+      summary: Crear datos
+      responses:
+        '200':
+          description: Datos creados exitosamente
